@@ -1,0 +1,144 @@
+body {
+  font-size: 1.2rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0rem;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding-top: 6rem;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 0rem;
+  }
+
+   #user {
+    margin-right: 6rem;
+  }
+}
+
+@media (min-width: 994px) {
+  #user{
+    margin-right: 1.2rem;
+  }
+  
+}
+
+
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: #71A4D8;
+  box-shadow: inset -1px 0 0 #71A4D8;
+  font-size: 3rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar .navbar-toggler {
+  top: 1.7rem;
+  right: 1rem;
+  height: 50px;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+
+}
+
+
+/* logout */
+
+#logout {
+  position: fixed;
+  bottom: 2rem;
+
+}
+/* 使用者名稱 */
+#user{
+  width: 75px;
+  height: 75px;;
+  text-decoration:none ;
+  line-height: 1.7rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-align: center;
+  border: black 10px;
+  text-decoration:none ;
+  padding-top: 1.5rem;
+  background-color: #0b3f73;
+}
+
+#user>a{
+  text-decoration:none ;
+}
+
+
+/* 統一字體 */
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+    *{
+      font-family: 'Noto Sans TC', sans-serif;    } */

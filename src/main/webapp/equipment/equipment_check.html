@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.98.0">
+  <title>iBoss</title>
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="../jquery-3.6.0.js"></script>
+  <link href="../css/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/navCss.css">
+
+
+
+
+  <style>
+    .form_li_equipment {
+      list-style-type: none;
+      display: flex;
+      margin-left: calc(-.5 * var(--bs-gutter-x));
+    }
+
+    .form_li_equipment>* {
+      flex-shrink: 0;
+      padding-left: calc(var(--bs-gutter-x) * .5);
+      padding-right: calc(var(--bs-gutter-x) * .5);
+      margin-top: var(--bs-gutter-y);
+    }
+
+    .delDiv {
+      position: relative;
+    }
+
+    .delEquipment {
+      position: absolute;
+      bottom: 0px;
+    }
+
+    #findAll {
+      border-color: black;
+    }
+
+    .selectCss {
+      display: inline;
+      width: 30%;
+      border-color: black;
+    }
+
+    tr {
+      text-align: center;
+      vertical-align: middle;
+    }
+    #controllerBtn,thead,tbody{
+      font-size: 1.5rem;
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-7" href="../home/home.html"><img src="../image/iblogow.png"
+        width="100px" height="67px">iBoss</a>
+
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="user">
+      <a href="../profile/profile.html">
+        <span class="circle" style=" color: white;"></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">
+                <span data-feather="home" class="align-text-bottom"></span>
+                首頁
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/profile.html">
+                <span data-feather="user" class="align-text-bottom"></span>
+                個人資料
+              </a>
+            </li>
+            <div class="personnel">
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/createProfile.html">
+                <span data-feather="user-plus" class="align-text-bottom iconPersonnel"></span>
+                新進員工建檔
+              </a>
+            </li>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../punchCard/punchRecord.html">
+                <span data-feather="clock" class="align-text-bottom"></span>
+                打卡紀錄
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../calendar/calendar.html">
+                <span data-feather="calendar" class="align-text-bottom"></span>
+                行事曆
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="annoucement" onclick="displayDiv('divAnnoucement')">
+                <span data-feather="edit" class="align-text-bottom"></span>
+                公告查詢
+              </button>
+            </li>
+            <div id="divAnnoucement">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link annoucements " href="../announcement/annoucementList.html">
+                    公告列表
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link annoucements" href="../announcement/announcementInsert.html">
+                      發布公告
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="leave" onclick="displayDiv('divLeave')">
+                <span data-feather="clipboard" class="align-text-bottom"></span>
+                請假
+              </button>
+            </li>
+            <div id="divLeave">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link leaves " href="../leave/leaveApply.html">
+                    填寫假單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link leaves" href="../leave/leaveRecord.html">
+                    假單查詢
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link leaves" href="../leave/leaveCheck.html">
+                      假單審核
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../pay/pay.html">
+                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                薪資查詢
+              </a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="order" onclick="displayDiv('divOrder')">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                訂餐
+              </button>
+            </li>
+            <div id="divOrder">
+              <ul>
+              <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-choice.html">
+                      選擇餐廳
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant.html">
+                    點餐
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant-record.html">
+                    訂餐查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-manager.html">
+                      上傳餐廳
+                    </a>
+                  </li>
+                </div>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-today.html">
+                      今日訂餐總表
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="" id="tool" onclick="displayDiv('divTool')">
+                <span data-feather="tool" class="align-text-bottom"></span>
+                器材
+              </button>
+            </li>
+
+            <div id="divTool">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_new.html">
+                    租借申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_fixnew.html">
+                    維修申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment.html">
+                    紀錄查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link tools" href="../equipment/equipment_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="package" onclick="displayDiv('divPackage')">
+                <span data-feather="box" class="align-text-bottom"></span>
+                包裹收發
+              </button>
+            </li>
+            <div id="divPackage">
+              <ul>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_get.html">
+                      包裹登錄
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive_push.html">
+                    寄件申請
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive.html">
+                    包裹查詢
+                  </a>
+                </li>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../webRTC/webrtc.html">
+                <span data-feather="video" class="align-text-bottom"></span>
+                視訊會議
+              </a>
+            </li>
+            <div class="boss">
+            <li class="nav-item">
+              <a class="nav-link" href="">
+              <span data-feather="camera" class="align-text-bottom iconBoss"></span>
+                即時影像
+              </a>
+            </li>
+            </div>
+            <li class="nav-item" id="logout">
+              <a class="nav-link" href="../index.html">
+                <span data-feather="log-out" class="align-text-bottom"></span>
+                登出
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <!-- 內容放置處 -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <table class="table table-striped">
+          <div class="col-12" style="padding-top: 50px;">
+            <h1 id="titleText">器材租借與維修進度追蹤</h1>
+            <hr>
+            <div class="col-6" style="padding-left: 0%;" id="controllerBtn">
+              <button type="button" class="btn btn-outline-secondary" id="findAll">全部</button>
+              <select id="takeList" class="form-select searchChoies selectCss">
+                <option selected disabled>租借類</option>
+                <option value="a">租借類-全部</option>
+                <option value="a2">租借類-審核中</option>
+                <option value="a3">租借類-出借中</option>
+              </select>
+              <select id="fixList" class="form-select searchChoies selectCss">
+                <option selected disabled>維修類</option>
+                <option value="b">維修類-全部</option>
+                <option value="b2">維修類-審核中</option>
+                <option value="b3">維修類-維修中</option>
+              </select>
+              <button type="button" class="btn btn-outline-secondary" id="prevbtu">上一頁</button>
+              <span id="page"></span>
+              <span>&#47;</span>
+              <span id="pages"></span>
+              <button type="button" class="btn btn-outline-secondary" id="nextbtu">下一頁</button>
+            </div>
+          </div>
+          <br>
+          <thead>
+            <tr>
+              <th scope="col" class="leaveBoss" style="width: 5%;">選取</th>
+              <th scope="col">單號</th>
+              <th scope="col">類型</th>
+              <th scope="col">申請人</th>
+              <th scope="col">部門</th>
+              <th scope="col">申請時間</th>
+              <th scope="col">目前狀態</th>
+              <th scope="col">出借時間</th>
+              <th scope="col">檢視</th>
+            </tr>
+          </thead>
+          <tbody id="listFromController">
+          </tbody>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">器材項目資訊</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="printout" class="modal-body">
+                </div>
+              </div>
+            </div>
+          </div>
+        </table>
+        <!-- 按鈕區塊 -->
+        <div id="leaveCheckBtn">
+          <button id="btnCheckYES" type="button" class="btn btn-success">已查核</button>
+          <button id="btnCheckNO" type="button" class="btn btn-danger" style="display:none;">駁回</button>
+        </div>
+      </main>
+
+
+    </div>
+  </div>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="../js/dashboard.js"></script>
+  <!-- 引用cookie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="../js/navScript.js"></script>
+
+  <script>
+    //cookie
+    var id = $.cookie('session_id');
+
+    //右上角ICON姓名
+    $.ajax({
+      url: `/profiles/select/${id}`,
+      dataType: "JSON",
+      success: function (data) {
+        var nickname = (data.name).substr(-2, 2);
+        $('.circle').text(nickname);
+      }
+    });
+
+
+    $(document).ready(function () {
+      allSelect();
+    })
+
+    //--廣域變數
+    var page = 1;//---分頁用
+    var optionText = "noFinish";//---判定搜尋條件用
+
+    //---搜尋全部
+    function allSelect() {
+      $('#listFromController').empty();
+      $.ajax({
+        type: "get",
+        url: `/api/equipment/select/noFinish/${page}/check`,
+        dataType: 'json',
+        success: function (data) {
+          dataList = data;
+          printList(data);
+        }
+      })
+    }
+
+    $('#findAll').click(function () {
+      optionText = "noFinish"
+      $('#takeList option').prop('selected', function () {
+        return this.defaultSelected;
+      });
+      $('#fixList option').prop('selected', function () {
+        return this.defaultSelected;
+      });
+      page = 1;
+      allSelect(optionText);
+    })
+
+    //---使下拉清單擁有篩選功能，並自動將下拉清單內容進行整理避免混淆
+    var dataList;//---抓出一次就繼續使用這筆資料
+    $('.searchChoies').change(function () {
+      var idValue = $(this).attr('id') + "";
+      optionText = $(this).val() + "";
+      if (optionText == "a2" || optionText == "b2") {
+        $('#btnCheckNO').css('display', 'inline');
+      } else {
+        $('#btnCheckNO').css('display', 'none');
+      }
+      //---抓出id，如果是getList，就還原pushList的選項回到預設值，反之亦然
+      if (idValue == "takeList") {
+        idValue = "fixList";
+      } else {
+        idValue = "takeList";
+      }
+      var idString = "#" + idValue + " " + "option";
+      $(idString).prop('selected', function () {
+        return this.defaultSelected;
+      });
+      page = 1;
+
+      //------呼叫controller要指定條件的資料展示到列表上
+      refrash();
+
+    })
+
+    //---切換範圍
+    $('#prevbtu').click(function(){
+      page--;
+      refrash();
+    });
+    $('#nextbtu').click(function(){
+      page++;
+      refrash();
+    });
+
+    //----刷新
+    function refrash() {
+      $.ajax({
+        type: "get",
+        url: `/api/equipment/select/${optionText}/${page}/check`,
+        dataType: 'json',
+        success: function (data) {
+          printList(data);
+        }
+      })
+    }
+
+
+    //---專門列印接收出來的資料
+    function printList(data) {
+      $('#listFromController').empty();//---清空上一次請求
+      $('#page').text(page.toString());
+      $('#pages').text(data[0].page);
+      //--------------確立所需參數
+      var dataLength = JSON.parse(JSON.stringify(data)).length;//---取得清單總長度
+      if(page == 1 ){
+        $('#prevbtu').attr('disabled','disabled');
+      }else{
+        $('#prevbtu').removeAttr('disabled');
+      }
+      if(dataLength < 10 || page >= Number(data[0].page)){
+        $('#nextbtu').attr('disabled','disabled');
+      }else{
+        $('#nextbtu').removeAttr('disabled');
+      }
+      for (var i = 1; i < dataLength; i++) {
+        var listData = `<tr>
+                    <th scope="row">
+                    <input type="checkbox" class="classCheckbox" name="" id="" value="${data[i].applyid}"></th>
+                    <td>${data[i].applyid}</td>
+                    <td>${data[i].applytype}</td>
+                    <td>${data[i].empname}</td>
+                    <td>${data[i].empdept}</td>
+                    <td>${data[i].applytime}</td>
+                    <td style="color:${data[i].textcolor};">${data[i].status}</td>
+                    <td>${data[i].accepttime}</td>
+                    <td><button type="button" class="btn btn-outline-secondary" style="font-size: 16px;"
+                      data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="detailCheck(${data[i].applyid})">查看表單</button></td>
+                  </tr>`;
+        $('#listFromController').append(listData);
+      }
+    }
+
+    //---透過按鈕尋找特定清單的詳細資料
+    function detailCheck(applyid) {
+      $('#printout').empty();
+      $.ajax({
+        type: 'get',
+        url: `/api/equipment/formContent/${applyid}`,
+        dataType: 'json',
+        success: function (data) {
+          //----加入固定內容
+          $('#printout').append(
+            `<div>單號：${data['applyid']}</div>` +
+            `<div>申請人：${data['empname']}</div>` +
+            `<div>申請人所屬部門：${data['empdept']}</div>` +
+            `<div>申請原因：${data['applyreason']}</div>`
+          );
+          //----加入動態內容
+          for (var i = 1; ; i++) {
+            var equipmentName = "equipmentName" + i;
+            var quantity = "quantity" + i;
+            if (data[equipmentName] == undefined) { break; }
+            $('#printout').append(
+              `<div>器材：${data[equipmentName]}，數量：${data[quantity]}</div>`
+            )
+          }
+
+        }
+      })
+    }
+
+    //---更新表單的狀態
+    $('#btnCheckYES').click(function () {
+      $('input[type="checkbox"]:checked').each(function () {
+        var updateID = $(this).val(); //---取得所選項目的id
+        //---呼叫controller儲存
+        $.ajax({
+          type: 'put',
+          url: `/api/equipment/formUpdate/${updateID}/pass`,
+          dataType: 'json',
+          success: function (data) {
+            //---成功後立刻以目前條件更新表單
+            refrash();
+          }
+        })
+      })
+    })
+
+    $('#btnCheckNO').click(function () {
+      $('input[type="checkbox"]:checked').each(function () {
+        var updateID = $(this).val(); //---取得所選項目的id
+        //---呼叫controller儲存
+        $.ajax({
+          type: 'put',
+          url: `/api/equipment/formUpdate/${updateID}/backBye`,
+          dataType: 'json',
+          success: function (data) {
+            //---成功後立刻以目前條件更新表單
+            refrash();
+          }
+        })
+      })
+    })
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+</body>
+
+</html>

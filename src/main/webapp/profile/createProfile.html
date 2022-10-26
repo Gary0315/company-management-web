@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.98.0">
+  <title>iBoss</title>
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="../jquery-3.6.0.js"></script>
+  <link href="../css/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/navCss.css">
+
+
+
+</head>
+
+<body>
+
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-7" href="../home/home.html"><img src="../image/iblogow.png"
+        width="100px" height="67px">iBoss</a>
+
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div id="user">
+      <a href="../profile/profile.html">
+        <span class="circle" style=" color: white;"></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">
+                <span data-feather="home" class="align-text-bottom"></span>
+                首頁
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/profile.html">
+                <span data-feather="user" class="align-text-bottom"></span>
+                個人資料
+              </a>
+            </li>
+            <div class="personnel">
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/createProfile.html">
+                <span data-feather="user-plus" class="align-text-bottom iconPersonnel"></span>
+                新進員工建檔
+              </a>
+            </li>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../punchCard/punchRecord.html">
+                <span data-feather="clock" class="align-text-bottom"></span>
+                打卡紀錄
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../calendar/calendar.html">
+                <span data-feather="calendar" class="align-text-bottom"></span>
+                行事曆
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="annoucement" onclick="displayDiv('divAnnoucement')">
+                <span data-feather="edit" class="align-text-bottom"></span>
+                公告查詢
+              </button>
+            </li>
+            <div id="divAnnoucement">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link annoucements " href="../announcement/annoucementList.html">
+                    公告列表
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link annoucements" href="../announcement/announcementInsert.html">
+                      發布公告
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="leave" onclick="displayDiv('divLeave')">
+                <span data-feather="clipboard" class="align-text-bottom"></span>
+                請假
+              </button>
+            </li>
+            <div id="divLeave">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link leaves " href="../leave/leaveApply.html">
+                    填寫假單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link leaves" href="../leave/leaveRecord.html">
+                    假單查詢
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link leaves" href="../leave/leaveCheck.html">
+                      假單審核
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../pay/pay.html">
+                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                薪資查詢
+              </a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="order" onclick="displayDiv('divOrder')">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                訂餐
+              </button>
+            </li>
+            <div id="divOrder">
+              <ul>
+              <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-choice.html">
+                      選擇餐廳
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant.html">
+                    點餐
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant-record.html">
+                    訂餐查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-manager.html">
+                      上傳餐廳
+                    </a>
+                  </li>
+                </div>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-today.html">
+                      今日訂餐總表
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="" id="tool" onclick="displayDiv('divTool')">
+                <span data-feather="tool" class="align-text-bottom"></span>
+                器材
+              </button>
+            </li>
+
+            <div id="divTool">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_new.html">
+                    租借申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_fixnew.html">
+                    維修申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment.html">
+                    紀錄查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link tools" href="../equipment/equipment_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="package" onclick="displayDiv('divPackage')">
+                <span data-feather="box" class="align-text-bottom"></span>
+                包裹收發
+              </button>
+            </li>
+            <div id="divPackage">
+              <ul>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_get.html">
+                      包裹登錄
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive_push.html">
+                    寄件申請
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive.html">
+                    包裹查詢
+                  </a>
+                </li>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../webRTC/webrtc.html">
+                <span data-feather="video" class="align-text-bottom"></span>
+                視訊會議
+              </a>
+            </li>
+            <div class="boss">
+            <li class="nav-item">
+              <a class="nav-link" href="">
+              <span data-feather="camera" class="align-text-bottom iconBoss"></span>
+                即時影像
+              </a>
+            </li>
+            </div>
+            <li class="nav-item" id="logout">
+              <a class="nav-link" href="../index.html">
+                <span data-feather="log-out" class="align-text-bottom"></span>
+                登出
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <!-- 內容放置處 -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+
+        
+        <div class="row">
+          <div class="col-sm-6 w-100 p-3">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+              <div class="card-body">
+                <h1 class="card-title text-center">新進員工建檔</h1>
+                <hr><br>
+                <div class="text-center"> 
+
+                  <br>
+                  <h3 class="card-title text-center">基本資料</h3>
+                  <hr class="horizontal dark">
+                  <br>
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="name" class="form-control-label">姓名</label>
+                        <input class="form-control" type="text" id="name" name="name" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">身分證字號</label>
+                        <input class="form-control" type="text" id="idnumber" placeholder="" name="idnumber" value="" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="sex" class="form-control-label">性別</label>
+                        <select class="form-control" type="text" id="sex" placeholder="" name="sex">
+                          <option value="男">男</option>
+                          <option value="女">女</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">生日</label>
+                        <input class="form-control" type="date" id="birthday" placeholder="" name="birthday" value="" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">電子信箱</label>
+                        <input class="form-control" type="email" id="email" placeholder="" name="email" value="" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">電話</label>
+                        <input class="form-control" type="text" id="phone" placeholder="" name="phone" value="" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">地址</label>
+                        <input class="form-control" type="text" id="addr" name="addr" value="" required="required">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <br>
+                  <br>
+
+                  <h3 class="card-title text-center">部門資訊</h3>
+                  <hr class="horizontal dark">
+                  <br>
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="disabledTextInput" class="form-control-label">員工編號</label>
+                        <input class="form-control" type="text" id="empid" placeholder="" disabled="" value="" >
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="disabledTextInput" class="form-control-label">登入密碼</label>
+                        <input class="form-control" type="text" id="passwd" placeholder="" value="" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="disabledTextInput" class="form-control-label">薪資密碼</label>
+                        <input class="form-control" type="text" id="passwd2" placeholder="" value="" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="dept" class="form-control-label">隸屬部門</label>
+                        <select class="form-control" type="text" id="dept" placeholder="" name="dept">
+                          <option value="1">資訊部</option>
+                          <option value="2">人事部</option>
+                          <option value="3">總務部</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="position" class="form-control-label">職位</label>
+                        <select class="form-control" type="text" id="position" placeholder="" name="position">
+                          <option value="1">主任</option>
+                          <option value="2">職員</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">到職日</label>
+                        <input class="form-control" type="date" id="onboarddate" placeholder="" name="onboarddate"
+                          value="" required="required">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <br>
+                  <br>
+
+                  <h3 class="card-title text-center">緊急連絡人</h3>
+                  <hr class="horizontal dark">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">姓名</label>
+                        <input class="form-control" type="text" id="emergencycontact" placeholder=""
+                          name="emergencyContact	" value="" required="required">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">電話</label>
+                        <input class="form-control" type="text" id="emergencyphone" placeholder="" name="emergencyphone"
+                          value="">
+                      </div>
+                    </div>
+
+                    <input type="hidden" id="resetPasswordToken" name="resetPasswordToken" value="" required="required">
+
+                  </div>
+                  <br><br>
+                  <!-- alert 的按鈕 -->
+                  <button type="submit" id="create" class="btn btn-warning" data-bs-toggle="modal"
+                  data-bs-target="#createMsg" >建立</button>
+                  
+                  <!-- alert 的內容    -->
+                  <div class="modal fade" id="createMsg" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <!-- <div class="modal-header">
+                          header 內含 hr 樣式
+                        </div> -->
+                        <div class="modal-body" style="display:flex;">
+                          <div id="alert" style="margin-left: 175px; font-weight: bold; font-size: 24px;"></div>
+                          <div style="margin-left: 140px;">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+      </main>
+
+
+    </div>
+  </div>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="../js/dashboard.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+  <!-- 引用cookie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="../js/navScript.js"></script>
+  
+  <!-- 內容的script -->
+  <script>
+
+//cookie
+  var id = $.cookie('session_id');
+
+  //右上角ICON姓名
+  $.ajax({
+    url: `/profiles/select/${id}`,
+    dataType: "JSON",
+    success: function (data) {
+      var nickname = (data.name).substr(-2, 2);
+      $('.circle').text(nickname);
+    }
+  });
+  
+$.ajax({	  
+  method: "Get",
+  url: "/profiles/select",
+  dataType: 'json',
+  success: function (data) {
+    $('#empid').val(data.length+1);
+  }      
+});
+
+
+
+// 新增
+$("#create").click(function () {
+  console.log($("#birthday").val().substring(0, 10));
+  $.ajax({
+    method: "post",
+    url: `/profiles/create`,
+    contentType: "application/json",
+    data: JSON.stringify({
+          name: $("#name").val(),
+          idnumber: $("#idnumber").val(),
+          sex: $("#sex").find(":selected").text(),
+          birthday: $("#birthday").val().substring(0, 10),
+          email: $("#email").val(),
+          phone: $("#phone").val(),
+          addr: $("#addr").val(),
+          empid: 0,
+          passwd: $("#passwd").val(),
+          passwd2: $("#passwd2").val(),
+          dept: {
+            deptid: $("#dept").find(":selected").val(),
+            dept: $("#dept").find(":selected").text(),
+          },
+          position: {
+            positionid: $("#position").find(":selected").val(),
+            position: $("#position").find(":selected").text(),
+          },
+          onboarddate: $("#onboarddate").val().substring(0, 10),
+          emergencycontact: $("#emergencycontact").val(),
+          emergencyphone: $("#emergencyphone").val(),
+    }),
+    success: function (data) {
+      console.log(data);
+      $('#alert').text("新增成功！")
+      $('#createMsg').show();
+      
+    },
+    error: function () {
+      console.log(createData1);
+      $('#alert').text("新增失敗！")
+      $('#createMsg').show();
+    },
+  });
+});
+
+//刪除
+// $('#cc').click(function () {
+
+//   $.ajax({
+//     method: "POST",
+//     url: "member/d",
+//     dataType: "JSON",
+//     contentType: 'application/json;charset=utf-8',
+//     data: JSON.stringify({
+//       member_id: $('input[name = "member_id"]').val(),
+//     }),
+
+//     error: function () {
+
+//       alert("失敗");
+
+//     },
+
+//     success: function () {
+
+//       alert("成功");
+
+//     }
+//   })
+// })
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+/* 設定內容置中 */
+main{
+    text-align: center;
+    padding-top:50px;
+    font-size: 1.5rem;
+}
+
+h1{
+text-align:left;
+}
+
+/* 核取方塊欄位隱藏 */
+.leaveBoss{
+display: none;
+}
+
+

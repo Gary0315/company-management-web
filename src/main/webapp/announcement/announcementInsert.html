@@ -1,0 +1,597 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.98.0">
+  <title>發布公告</title>
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="../jquery-3.6.0.js"></script>
+  <link href="../css/dashboard.css" rel="stylesheet">
+  <link href="../css/navCss.css" rel="stylesheet">
+
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #logout {
+      margin-top: 25rem;
+    }
+
+    #date {
+      font-size: 1.5rem;
+    }
+
+    .image_div {
+      width: 5rem;
+      height: 100%;
+      overflow: hidden;
+      fill: white;
+      border: 0;
+      background-color: transparent;
+    }
+
+    .anform {
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .department {
+      border-radius: 10px;
+      height: 50px;
+      text-indent: 3px;
+    }
+
+    /* 下拉式選單 樣式 */
+    select {
+      -webkit-appearance: none;
+      /*取消小三角的顯示*/
+      text-indent: 0.01px;
+      padding: 3px;
+      background-image: url(../image/caret-down.svg);
+      /*新的小三角連結*/
+      background-repeat: no-repeat;
+      background-position: 240px 15px;
+
+    }
+
+    .mainContent {
+      float: left;
+      position: relative;
+      left: 320px;
+      top: 20px;
+    }
+
+    #dateselect {
+      padding: 10px;
+      border-radius: 10px;
+      height: 50px;
+    }
+
+    main {
+      font-size: 24px;
+
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-7" href="../home/home.html"><img src="../image/iblogow.png"
+        width="100px" height="67px">iBoss</a>
+
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="user">
+      <a href="../profile/profile.html">
+        <span class="circle" style=" color: white;"></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">
+                <span data-feather="home" class="align-text-bottom"></span>
+                首頁
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/profile.html">
+                <span data-feather="user" class="align-text-bottom"></span>
+                個人資料
+              </a>
+            </li>
+            <div class="personnel">
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/createProfile.html">
+                <span data-feather="user-plus" class="align-text-bottom iconPersonnel"></span>
+                新進員工建檔
+              </a>
+            </li>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../punchCard/punchRecord.html">
+                <span data-feather="clock" class="align-text-bottom"></span>
+                打卡紀錄
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../calendar/calendar.html">
+                <span data-feather="calendar" class="align-text-bottom"></span>
+                行事曆
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="annoucement" onclick="displayDiv('divAnnoucement')">
+                <span data-feather="edit" class="align-text-bottom"></span>
+                公告查詢
+              </button>
+            </li>
+            <div id="divAnnoucement">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link annoucements " href="../announcement/annoucementList.html">
+                    公告列表
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link annoucements" href="../announcement/announcementInsert.html">
+                      發布公告
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="leave" onclick="displayDiv('divLeave')">
+                <span data-feather="clipboard" class="align-text-bottom"></span>
+                請假
+              </button>
+            </li>
+            <div id="divLeave">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link leaves " href="../leave/leaveApply.html">
+                    填寫假單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link leaves" href="../leave/leaveRecord.html">
+                    假單查詢
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link leaves" href="../leave/leaveCheck.html">
+                      假單審核
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../pay/pay.html">
+                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                薪資查詢
+              </a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="order" onclick="displayDiv('divOrder')">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                訂餐
+              </button>
+            </li>
+            <div id="divOrder">
+              <ul>
+              <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-choice.html">
+                      選擇餐廳
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant.html">
+                    點餐
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant-record.html">
+                    訂餐查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-manager.html">
+                      上傳餐廳
+                    </a>
+                  </li>
+                </div>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-today.html">
+                      今日訂餐總表
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="" id="tool" onclick="displayDiv('divTool')">
+                <span data-feather="tool" class="align-text-bottom"></span>
+                器材
+              </button>
+            </li>
+
+            <div id="divTool">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_new.html">
+                    租借申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_fixnew.html">
+                    維修申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment.html">
+                    紀錄查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link tools" href="../equipment/equipment_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="package" onclick="displayDiv('divPackage')">
+                <span data-feather="box" class="align-text-bottom"></span>
+                包裹收發
+              </button>
+            </li>
+            <div id="divPackage">
+              <ul>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_get.html">
+                      包裹登錄
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive_push.html">
+                    寄件申請
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive.html">
+                    包裹查詢
+                  </a>
+                </li>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../webRTC/webrtc.html">
+                <span data-feather="video" class="align-text-bottom"></span>
+                視訊會議
+              </a>
+            </li>
+            <div class="boss">
+            <li class="nav-item">
+              <a class="nav-link" href="">
+              <span data-feather="camera" class="align-text-bottom iconBoss"></span>
+                即時影像
+              </a>
+            </li>
+            </div>
+            <li class="nav-item" id="logout">
+              <a class="nav-link" href="../index.html">
+                <span data-feather="log-out" class="align-text-bottom"></span>
+                登出
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <!-- 內容放置處 -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="padding-top: 30px;">
+        <div class="col-12" style="padding-top: 20px;">
+
+          <h1>發布公告</h1>
+          <hr>
+          <div>
+            通知單位<span id="titleAlert" style="color: red ;">*</span>
+            <span>　　　　　　　　</span>
+            發布時間<span id="titleAlert" style="color: red ;">*</span>
+            <br>
+            <select id="andepart" name="depart" class="department" style="width: 270px; padding: 2px;"
+              onChange="renew(this.selectedIndex);">
+              <option value=0>選擇部門</option>
+              <option value=1>全體部門</option>
+              <option value=2>收發部門</option>
+              <option value=3>人事部門</option>
+              <option value=4>總務部門</option>
+
+            </select>
+            <span>　</span>
+            <!-- 日期input -->
+            <input id="dateselect" type="date">
+
+            <span>　　　</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
+              class="bi bi-file-earmark" viewBox="0 0 16 16">
+              <path
+                d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+            </svg>
+            <a href="announcementDraft.html" style="color:black ;font-size: 25px;">
+              預覽草稿</a>
+            <br><br>
+            標題<span id="titleAlert" style="color: red ;">*</span><br>
+            <input id="antitle" type="text" class="anform" size="61"><br><br>
+            內容<span id="titleAlert" style="color: red ;">*</span><br>
+            <textarea id="ancontent" name="content" rows="6" cols="60" class="anform"> </textarea>
+
+            <br>
+
+            <input type="submit" class="btn btn-primary" value="發布公告" onclick="btnclick()">
+            <span>　　</span>
+            <button class="btn btn-secondary draft" onclick="btndraft()">儲存為草稿</button>
+            <span>　</span>
+            <button class="btn btn-secondary draft" onclick="location.href='announcementSpeech.html'">語音輸入頁面</button>
+
+
+
+          </div>
+      </main>
+
+
+    </div>
+  </div>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="../js/dashboard.js"></script>
+  　
+  <!--  引用cookie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="../js/navScript.js"></script>
+  <!-- HTML文字框 -->
+  <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+
+
+  <!-- 內容的script -->
+  <script>
+
+
+
+    var annNum = 0;
+    //cookie取得資料     
+    var id = $.cookie('session_id');
+    var position = $.cookie('session_position');
+
+    //右上角ICON姓名
+    $.ajax({
+      url: `/profiles/select/${id}`,
+      dataType: "JSON",
+      success: function (data) {
+        var nickname = (data.name).substr(-2, 2);
+        $('.circle').text(nickname);
+      }
+    });
+
+
+    //HTML文字框 
+    CKEDITOR.replace("ancontent");
+
+    //下拉式選單加入標題 
+    document.getElementById("andepart").onchange = function () {
+
+      var inputText = document.getElementById("antitle").value;
+
+      if (document.getElementById("andepart").value == 1) {
+        inputText = "[全體公告]";
+      } else if (document.getElementById("andepart").value == 2) {
+        inputText = "[收發公告]";
+      } else if (document.getElementById("andepart").value == 3) {
+        inputText = "[人事公告]";
+      } else if (document.getElementById("andepart").value == 4) {
+        inputText = "[總務公告]";
+      }
+
+      document.getElementById("antitle").value = inputText;
+    };
+
+    //發布公告 按鈕事件
+    function btnclick() {
+      //無輸入標題
+      var temp = document.getElementById("antitle").value;
+
+      //審核有無輸入內容
+      if (document.getElementById("andepart").value == 0) {
+        alert("請選擇公告部門");
+      } else if (temp.substr(6) == "" && CKEDITOR.instances.ancontent.getData() == "") {
+        alert("請輸入標題與內容");
+      } else if (temp.substr(6) == "") {
+        alert("請輸入標題");
+      } else if (CKEDITOR.instances.ancontent.getData() == "") {
+        alert("請輸入內容");
+      }
+
+      //console.log(CKEDITOR.instances.ancontent.getData())
+
+      var dataToServer = {
+        "announcementid": 0,
+        "announcementtime": document.getElementById("dateselect").value,
+        "announcementtitle": document.getElementById("antitle").value,
+        "context": CKEDITOR.instances.ancontent.getData(),
+        "empid": Number(id),
+        "deptid": Number(position),
+        "announcementtype": 1
+      }
+      console.log(dataToServer);
+
+      $.ajax({
+        type: "post",
+        url: `/api/annoucement`,
+        data: JSON.stringify(dataToServer),
+        contentType: "application/json",
+        success: function (data) {
+
+          location.href = "annoucementList.html";
+          console.log("OK")
+        }
+      });
+
+
+    }
+
+
+    //儲存為草稿 按鈕事件
+    function btndraft() {
+      //無輸入標題
+      var temp = document.getElementById("antitle").value;
+
+      //審核有無輸入內容
+      if (document.getElementById("andepart").value == 0) {
+        alert("請選擇公告部門");
+      } else if (temp.substr(6) == "" && CKEDITOR.instances.ancontent.getData() == "") {
+        alert("請輸入標題與內容");
+      } else if (temp.substr(6) == "") {
+        alert("請輸入標題");
+      } else if (CKEDITOR.instances.ancontent.getData() == "") {
+        alert("請輸入內容");
+      }
+
+      //console.log(CKEDITOR.instances.ancontent.getData())
+
+
+      var dataToServer = {
+        "announcementid": 0,
+        "announcementtime": document.getElementById("dateselect").value,
+        "announcementtitle": document.getElementById("antitle").value,
+        "context": CKEDITOR.instances.ancontent.getData(),
+        "empid": Number(id),
+        "deptid": Number(position),
+        "announcementtype": 0
+      }
+      console.log(dataToServer);
+
+      $.ajax({
+        type: "post",
+        url: `/api/annoucement`,
+        data: JSON.stringify(dataToServer),
+        contentType: "application/json",
+        success: function (data) {
+          $.ajax({
+            url: `/api/annoucement/all`,
+            dataType: 'json',
+            success: function (data) {
+              annNum = data[0].announcementid + 1;
+            }
+          })
+          location.href = "announcementDraft.html";
+        }
+      });
+
+
+    }
+
+
+
+    //CKEDITOR 大小設定
+    CKEDITOR.on('instanceLoaded', function (e) { e.editor.resize(800, 350) });
+
+
+
+  </script>
+
+
+</body>
+
+</html>

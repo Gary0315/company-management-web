@@ -1,0 +1,94 @@
+#title {
+    margin-top: 1.2rem;
+}
+
+#restaurant-list {
+	text-align:center;
+    margin-right: 6rem;
+    margin-top: 3rem;
+}
+
+#restaurant-list img{
+    width:21rem;
+}
+
+.meal{
+   margin-left: 12rem;
+   font-size:2rem;
+   vertical-align: middle;
+   
+}
+
+.price{
+    font-size:2rem;
+    vertical-align: middle;
+ }
+
+ .quantity{
+    text-align: right;
+    margin-left: 6rem;
+         
+ }
+
+ .total{
+    margin-left: 6rem;
+    font-size: 1.5rem;
+ }
+
+ .quantity-div{
+    margin-left: 55rem;
+    margin-top: -8rem;
+  }
+
+  
+  #btnPreview{
+  	margin-left:1rem;
+  }
+  
+  #btnChoose{
+  	margin-left:0.5rem;
+  }
+  
+  #choice-div{
+ 	margin-top:1.5rem;
+  }
+  
+  .selectMeal{
+  margin-left:5rem;
+  width:2rem;
+  height:2rem;
+  vertical-align: middle;
+  }
+  
+  #paymethod{
+	width: 16rem; height: 3rem; margin-left: 81%;
+  }
+  
+  h1{
+  font-size:42px;
+  }
+  
+  #restaurant-name{
+  font-size : 36px;
+  }
+  
+  /* 按鈕字體大小 */ 
+#btnCheckYes,#btnCheckNo{
+	font-size: 1.5rem;
+}
+  
+	  /* confirm內容 */ 
+.modal-body{
+		margin:1rem;
+		font-size: 1.5rem;
+		text-align:center;
+		vertical-align: middle;
+}
+	
+/* confirm按鈕 置中 */ 
+.modal-footer{
+		justify-content: center;
+}
+  
+  
+ 

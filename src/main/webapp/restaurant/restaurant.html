@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.98.0">
+	<title>iBoss</title>
+
+	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../jquery-3.6.0.js"></script>
+	<link href="../css/dashboard.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/navCss.css">
+	<link rel="stylesheet" href="../css/restaurant.css">
+
+</head>
+
+<body>
+
+	<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-7" href="../home/home.html"><img
+				src="../image/iblogow.png" width="100px" height="67px">iBoss</a>
+
+		<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+			data-bs-target="#sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div id="user">
+	      <a href="../profile/profile.html">
+	        <span class="circle" style=" color: white;"></span>
+	      </a>
+    	</div>
+	</header>
+
+	<div class="container-fluid">
+		<div class="row">
+			<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">
+                <span data-feather="home" class="align-text-bottom"></span>
+                首頁
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/profile.html">
+                <span data-feather="user" class="align-text-bottom"></span>
+                個人資料
+              </a>
+            </li>
+            <div class="personnel">
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/createProfile.html">
+                <span data-feather="user-plus" class="align-text-bottom iconPersonnel"></span>
+                新進員工建檔
+              </a>
+            </li>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../punchCard/punchRecord.html">
+                <span data-feather="clock" class="align-text-bottom"></span>
+                打卡紀錄
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../calendar/calendar.html">
+                <span data-feather="calendar" class="align-text-bottom"></span>
+                行事曆
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="annoucement" onclick="displayDiv('divAnnoucement')">
+                <span data-feather="edit" class="align-text-bottom"></span>
+                公告查詢
+              </button>
+            </li>
+            <div id="divAnnoucement">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link annoucements " href="../announcement/annoucementList.html">
+                    公告列表
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link annoucements" href="../announcement/announcementInsert.html">
+                      發布公告
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="leave" onclick="displayDiv('divLeave')">
+                <span data-feather="clipboard" class="align-text-bottom"></span>
+                請假
+              </button>
+            </li>
+            <div id="divLeave">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link leaves " href="../leave/leaveApply.html">
+                    填寫假單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link leaves" href="../leave/leaveRecord.html">
+                    假單查詢
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link leaves" href="../leave/leaveCheck.html">
+                      假單審核
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../pay/pay.html">
+                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                薪資查詢
+              </a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="order" onclick="displayDiv('divOrder')">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                訂餐
+              </button>
+            </li>
+            <div id="divOrder">
+              <ul>
+              <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-choice.html">
+                      選擇餐廳
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant.html">
+                    點餐
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant-record.html">
+                    訂餐查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-manager.html">
+                      上傳餐廳
+                    </a>
+                  </li>
+                </div>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-today.html">
+                      今日訂餐總表
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="" id="tool" onclick="displayDiv('divTool')">
+                <span data-feather="tool" class="align-text-bottom"></span>
+                器材
+              </button>
+            </li>
+
+            <div id="divTool">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_new.html">
+                    租借申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_fixnew.html">
+                    維修申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment.html">
+                    紀錄查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link tools" href="../equipment/equipment_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="package" onclick="displayDiv('divPackage')">
+                <span data-feather="box" class="align-text-bottom"></span>
+                包裹收發
+              </button>
+            </li>
+            <div id="divPackage">
+              <ul>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_get.html">
+                      包裹登錄
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive_push.html">
+                    寄件申請
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive.html">
+                    包裹查詢
+                  </a>
+                </li>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../webRTC/webrtc.html">
+                <span data-feather="video" class="align-text-bottom"></span>
+                視訊會議
+              </a>
+            </li>
+            <div class="boss">
+            <li class="nav-item">
+              <a class="nav-link" href="">
+              <span data-feather="camera" class="align-text-bottom iconBoss"></span>
+                即時影像
+              </a>
+            </li>
+            </div>
+            <li class="nav-item" id="logout">
+              <a class="nav-link" href="../index.html">
+                <span data-feather="log-out" class="align-text-bottom"></span>
+                登出
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+			<!-- 內容放置處 -->
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="padding-top: 29px;">
+			<!-- alert confirm 內容 -->
+			<div class="modal fade" id="confirmContext" data-bs-backdrop="static" tabindex="-1"
+	          aria-labelledby="exampleModalLabel" aria-hidden="true">
+	          <div class="modal-dialog modal-dialog-centered">
+	            <div class="modal-content">
+	              <div class="modal-body">
+	              <span></span>
+	              </div>
+	              <div class="modal-footer"> 
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      
+				<div id="title">
+					<h1>今日餐廳</h1><hr><span id="restaurant-name"></span><br><span></span>
+				</div>
+			</main>
+			<div id="restaurant-list" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div id="paymethod" style="font-size:1.5rem;"> 
+					<label for="choice">支付方式:</label>
+					<Select id="paymethod-restaurant" name="paymethod">
+						<option value="cash">現金支付</option>
+						<option value="salary">薪資扣款</option>
+						<option value="credit">信用卡支付</option>
+					</Select>
+					
+					<button id="btnorder" type="submit" class=" btn btn-primary "
+					style="width: 10rem; height: 3rem; margin-bottom: 3rem; margin-top: 1rem;font-size:1.5rem;">送出</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script src="../js/dashboard.js"></script>
+	
+	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<script src="../js/navScript.js"></script>
+	
+	<!-- 內容的script -->
+	<script>
+	
+	
+	//cookie
+	  var id = $.cookie('session_id');
+
+	  //右上角ICON姓名
+	  $.ajax({
+	    url: `/profiles/select/${id}`,
+	    dataType: "JSON",
+	    success: function (data) {
+	      var nickname = (data.name).substr(-2, 2);
+	      $('.circle').text(nickname);
+	    }
+	  });
+	  	//回首頁
+		function home() {
+			location.href = "http://localhost:8080/home/home.html";
+		}
+		//確認餐點按鈕跳出confirm
+		btnorder.onclick=function(){
+			$(".modal-footer").empty();
+			$(".modal-footer")
+			.append('<button id="btnCheckYes" type="button" class="btn btn-primary" onclick="checkYES();">確定</button>')
+            .append('<button id="btnCheckNo" type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>');
+			//確認餐點內容
+			var order = "請確認以下餐點:\n"
+		    order = order + $(`#meal${$("input[name=selectMeal]:checked").val()}-name`).text()+ "<br><br>送出後無法更改"
+			$(".modal-body>span").html(order);
+		    //confirm 視窗
+		    var myModal = new bootstrap.Modal(document.getElementById('confirmContext'));
+             myModal.show();
+		}
+		 
+		 function checkYES(){
+			   $.ajax({
+				   //新增餐點紀錄
+				      url: 'http://localhost:8080/api/orderrecords/',
+				                  type:'post',
+				                  data: JSON.stringify({
+				                   "orderlist":{
+				                    "orderitemid":$("input[name=selectMeal]:checked").val()
+				                   },
+				                   "orderid":0,
+				                   "empid":$.cookie('session_id'),
+				                   "orderdate":new Date(),
+				                   "paymethod": $("#paymethod-restaurant").val()
+				 
+				                  }),
+				                  contentType: "application/json; charset=utf-8",
+				                  dataType: 'json',
+				                  success: function (data) {
+				          //是否為信用卡 彈出綠界視窗
+				          if($("#paymethod-restaurant").val()=="credit"){
+				           $.post("http://10.0.100.178:8080/api/cash/", {MerchantTradeNo:"iboss"+data.orderid,MerchantTradeDate:new Date(),TotalAmount:data.orderlist.orderprice,ItemName:data.orderlist.orderitem}, 
+				                function(pay){
+				            $.cookie('credit',pay);
+				           window.open(
+				               'http://localhost:8080/restaurant/creditcard.html',
+				                'popup',
+				                `toolbar=no,
+				                 location=no,
+				                 status=no,
+				                 menubar=no,
+				                 scrollbars=yes,
+				                 resizable=yes,
+				                 width=1300,
+				                 height=800,
+				                 left=400`
+				             );
+				           
+				           })
+				            }else{
+				            $(".modal-footer").empty();
+				    		$(".modal-footer")
+				    		.append('<button id="btnAlert" type="button" class="btn btn-primary" onclick="reloadPage();">確定</button>')
+				            	
+				           	var myModal = new bootstrap.Modal(document.getElementById('confirmContext'));
+				            $(".modal-body>span").text("訂餐成功");
+				            myModal.show();       
+				            }     
+				           },
+				     	 error: function(){
+				     		  $(".modal-footer").empty();
+					    		$(".modal-footer")
+					    		.append('<button id="btnAlert" type="button" class="btn btn-primary" onclick="reloadPage();">確定</button>')
+					            	
+					           	var myModal = new bootstrap.Modal(document.getElementById('confirmContext'));
+					            $(".modal-body>span").text("訂餐失敗");
+					            myModal.show();      
+				           }
+				    });
+		 }
+		 //重新整理
+		 function reloadPage(){
+			 location.reload();
+		 }
+	
+		$(document).ready(function () {
+			$.ajax({
+				url: 'http://localhost:8080/api/restaurants/',
+				dataType: 'json',
+				success: function (data) {
+					console.log(data);
+					for (i = 0; i < data.length; i++) {
+						$("#choice-restaurant").append(`<option value="${i + 1}">${data[i].restaurantname}</option>`);
+					}
+
+				}
+			});
+			//設定訂餐時間限制
+			const time1 = new Date();
+			time1.setHours(9);
+			time1.setMinutes(0);
+			const time2 = new Date();
+			time2.setHours(11);
+			time2.setMinutes(0);
+			console.log(time1);
+			console.log(time2)
+			
+			//if(new Date()<time1 || new Date()>time2 ){
+			//alert("9:00~11:00才可以訂餐 謝謝配合");
+			//home();
+		//	}
+
+		});
+
+		$(document).ready(function () {
+			//顯示日期
+			var date = new Date();
+			var days = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+		    var dateformat = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, 0)}-${date.getDate().toString().padStart(2, 0)} ${days[date.getDay()]}`
+			//餐廳名稱
+		    $("#title>span").text(dateformat);
+		    //餐點
+		    $.ajax({
+				url: 'http://localhost:8080/api/orders/menu/',
+				dataType: 'json',
+				headers:{
+					"Authorization":"Basic "+localStorage.getItem("jwtToken")
+				},
+				success: function (data) {
+					$("#title>#restaurant-name").text(data[0].restaurant.restaurantname);
+					if (data != 0) {
+						for (i = 0; i < data.length; i++) {
+							$("#paymethod").before(
+								`<div id="meal${i}">
+                            <div class="meal-div">
+                              <img id="meal${i}-img" src="" alt="無圖片">
+                              <span id="meal${data[i].orderitemid}-name" class="meal"></span>
+                              <span id="meal${i}-price" class="price"></span>
+                              <input type="radio" name="selectMeal" class="selectMeal" value="${data[i].orderitemid}"  />
+                            </div>
+                            </div>`
+							);
+							$(`#meal${i}-img`).prop("src", data[i].image)
+							$(`#meal${data[i].orderitemid}-name`).text(data[i].orderitem)
+							$(`#meal${i}-price`).text("$" + data[i].orderprice)
+							console.log(data.length);
+
+						}
+					} else {
+						alert("9:00~11:00才可以訂餐 謝謝配合")
+						console.log(data);
+					}
+				}
+			});
+		});
+
+
+
+
+	</script>
+
+
+</body>
+
+</html>

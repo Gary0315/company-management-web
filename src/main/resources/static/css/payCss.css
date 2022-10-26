@@ -1,0 +1,87 @@
+/* 設定內容置中 */
+main{
+    text-align: center;
+    padding-top:50px;
+}
+
+h1{
+text-align:left;
+}
+
+/* 密碼確認區塊靠左 */
+#confirmPwd2{
+	text-align:left;
+	font-size: 1.5rem;
+}
+
+/* 三個圖區塊併排 */
+.div{
+    margin-top: 1.5rem;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+/* 圓餅圖與表格水平置中 */
+.chart,.divTable{
+    display: block;
+    text-align: center;
+    margin: 3rem;
+}
+
+/* 表格置中、文字大小 */
+.divTable{
+text-align: center;
+font-size: 1.5rem;
+
+}
+
+/* 表格首列與末列 文字粗體、顏色 */
+.table tr:last-child {
+font-weight: bolder;
+}
+
+/* 表格末列 文字粗體、顏色 */
+.table thead tr:last-child {
+font-weight: bolder;
+color: #49678D;
+}
+
+/* 圓餅圖文字大小 */
+.c3 text{
+font-size: 1.1rem;
+}
+
+
+/* 圓餅圖標籤寬度 */
+.c3-tooltip-container{
+width: 100%;
+
+}
+
+/* 圓餅圖標籤文字大小 */
+.c3-tooltip-container td{
+font-size: 1.1rem;
+}
+
+/* 圓餅圖內文字大小、顏色 */
+.c3-chart text{
+fill: #49678D;
+font-size: 1.8rem;
+}
+
+/* 按鈕字體大小 */ 
+#btnCheckYes,#btnCheckNo{
+	font-size: 1.5rem;
+}
+
+/* confirm內容 */ 
+.modal-body{
+	margin:1rem;
+	font-size: 1.5rem;
+}
+
+/* confirm按鈕 置中 */ 
+.modal-footer{
+	justify-content: center;
+}
+

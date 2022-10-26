@@ -1,0 +1,40 @@
+/* 按鈕字體大小 */ 
+#btnCheckYes,#btnCheckNo{
+	font-size: 1.5rem;
+}
+
+/* confirm按鈕 置中 */ 
+.modal-footer{
+	justify-content: center;
+}
+body{
+/* 	background-color:#b4d2f1; */
+}
+
+/*調整行事曆大小*/
+.container{
+	background-color:white;
+	margin-right:30px;
+	width:1500px;
+	height:1065px;
+	border: 1px solid gray;
+	box-shadow:5px 10px 7px gray;
+	padding:10px;	
+
+}
+
+/*行事曆標題CSS*/
+.fc .fc-toolbar-title{
+	color:#474E5B;
+	font-size:3rem;
+}
+/*星期CSS*/
+.fc .fc-col-header-cell-cushion{
+	color:black;
+}
+/*日期CSS*/
+.fc a[data-navlink] {
+	color:black;
+}
+
+

@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.98.0">
+  <title>iBoss</title>
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/dashboard.css" rel="stylesheet">
+  <link href="../css/navCss.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="../css/home.css">
+
+  <script src="../jquery-3.6.0.js"></script>
+
+  <style>
+    /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+    *{
+      font-family: 'Noto Sans TC', sans-serif;    } */
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1 px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #infoModal,
+    #infoModal2,
+    #wrongmodal {
+      height: 530px;
+      width: 500px
+    }
+
+    .cardDate {
+      font-size: medium;
+      border-style: solid;
+      border-width: 1px;
+      padding: 2px;
+    }
+
+    .cardTitle {
+      padding: 8px;
+    }
+
+    #more {
+      left: 120px;
+      margin-left: 30px;
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-7" href="./home.html"><img src="../image/iblogow.png"
+        width="100px" height="67px">iBoss</a>
+
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="user">
+      <a href="../profile/profile.html">
+        <span class="circle" style=" color: white;"></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">
+                <span data-feather="home" class="align-text-bottom"></span>
+                首頁
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/profile.html">
+                <span data-feather="user" class="align-text-bottom"></span>
+                個人資料
+              </a>
+            </li>
+            <div class="personnel">
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/createProfile.html">
+                <span data-feather="user-plus" class="align-text-bottom iconPersonnel"></span>
+                新進員工建檔
+              </a>
+            </li>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../punchCard/punchRecord.html">
+                <span data-feather="clock" class="align-text-bottom"></span>
+                打卡紀錄
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../calendar/calendar.html">
+                <span data-feather="calendar" class="align-text-bottom"></span>
+                行事曆
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="annoucement" onclick="displayDiv('divAnnoucement')">
+                <span data-feather="edit" class="align-text-bottom"></span>
+                公告查詢
+              </button>
+            </li>
+            <div id="divAnnoucement">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link annoucements " href="../announcement/annoucementList.html">
+                    公告列表
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link annoucements" href="../announcement/announcementInsert.html">
+                      發布公告
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="leave" onclick="displayDiv('divLeave')">
+                <span data-feather="clipboard" class="align-text-bottom"></span>
+                請假
+              </button>
+            </li>
+            <div id="divLeave">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link leaves " href="../leave/leaveApply.html">
+                    填寫假單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link leaves" href="../leave/leaveRecord.html">
+                    假單查詢
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link leaves" href="../leave/leaveCheck.html">
+                      假單審核
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../pay/pay.html">
+                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                薪資查詢
+              </a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="order" onclick="displayDiv('divOrder')">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                訂餐
+              </button>
+            </li>
+            <div id="divOrder">
+              <ul>
+              <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-choice.html">
+                      選擇餐廳
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant.html">
+                    點餐
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant-record.html">
+                    訂餐查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-manager.html">
+                      上傳餐廳
+                    </a>
+                  </li>
+                </div>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-today.html">
+                      今日訂餐總表
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="" id="tool" onclick="displayDiv('divTool')">
+                <span data-feather="tool" class="align-text-bottom"></span>
+                器材
+              </button>
+            </li>
+
+            <div id="divTool">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_new.html">
+                    租借申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_fixnew.html">
+                    維修申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment.html">
+                    紀錄查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link tools" href="../equipment/equipment_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="package" onclick="displayDiv('divPackage')">
+                <span data-feather="box" class="align-text-bottom"></span>
+                包裹收發
+              </button>
+            </li>
+            <div id="divPackage">
+              <ul>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_get.html">
+                      包裹登錄
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive_push.html">
+                    寄件申請
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive.html">
+                    包裹查詢
+                  </a>
+                </li>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../webRTC/webrtc.html">
+                <span data-feather="video" class="align-text-bottom"></span>
+                視訊會議
+              </a>
+            </li>
+            <!-- <div class="boss">
+            <li class="nav-item">
+              <a class="nav-link" href="">
+              <span data-feather="camera" class="align-text-bottom iconBoss"></span>
+                即時影像
+              </a>
+            </li>
+            </div> -->
+            <li class="nav-item" id="logout">
+              <a class="nav-link" href="../index.html">
+                <span data-feather="log-out" class="align-text-bottom"></span>
+                登出
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="welcome-div">
+          <div id="welcome"></div>
+          <div id="date"></div>
+        </div>
+      </main>
+	<!--天氣-->
+      <div id="weather-div" class="col-md-9 ms-sm-auto col-lg-3 px-md-4">
+        <div id="weather-description">
+          <img id="weather" src="">
+        </div>
+        <img id="temp" src="../image/temp.png">
+        <img id="humid" src="../image/humid.png">
+      </div>
+
+      <div id="weatherText" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <span id="tempText"></span>
+        <span id="humidText"></span>
+      </div>
+
+      <!-- 正確的iframe-->
+      <dialog id="infoModal">
+        <div align="center"><iframe id="frame" width="400" height="400" frameborder="0" style="border:0" src=""></div>
+        </iframe>
+        <h4 style="text-align:center ; color: blue;">位置正確，請打卡</h4>
+        <div style="text-align:center ;"><button id="closec" data-bs-toggle="modal" data-bs-target="#punchalert">打卡</button></div>
+      </dialog>
+
+      <dialog id="infoModal2">
+        <div align="center"><iframe id="frame2" width="400" height="400" frameborder="0" style="border:0" src=""></div>
+        </iframe>
+        <h4 style="text-align:center ; color: blue;">位置正確，請打卡</h4>
+        <div style="text-align:center ;"><button id="closec2" data-bs-toggle="modal" data-bs-target="#punchalert">打卡</button></div>
+      </dialog>
+
+      <!-- 錯誤的iframe-->
+      <dialog id="wrongmodal">
+        <div align="center"><iframe id="wframe" width="400" height="400" frameborder="0" style="border:0" src=""></div>
+        </iframe>
+        <h4 style="text-align:center ; color: red;">位置不符，請重新定位</h4>
+        <div style="text-align:center ;"><button id="closew">關閉</button> </div>
+      </dialog>
+
+      <div class="btn-div col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <button id="btn1" class="btn1">上班打卡</button>
+        <button id="btn2" class="btn2">下班打卡</button>
+      </div>
+      <div class="modal fade" id="punchalert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+<!--             <div class="modal-header"> -->
+
+<!--               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+<!--             </div> -->
+         
+            <div class="modal-body" style="display:flex;">
+              <div id="alert" style="margin-left: 175px; font-weight: bold; font-size: 24px;">打卡成功！</div>          
+              <div style="margin-left: 140px;">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+              </div>          
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <div class="btn-div col-md-9 ms-sm-auto col-lg-10 px-md-4 antitle" id="title" style="margin-top:20px"></div>
+
+      <!--       <div class="notice"> -->
+      <!--         <h3 style="font-size:2rem;">最新公告</h3> -->
+      <!--         <a href="https://gnn.gamer.com.tw/detail.php?sn=234210" class="news">1.科技業求才 人力銀行：工程師職缺逾11萬筆、年增25% -->
+      <!--           萬人</a><br> -->
+      <!--         <a href="https://gnn.gamer.com.tw/detail.php?sn=229158" class="news">2.挺進科技業 26歲的她從銀行員拚進科技業薪資逾六萬 -->
+      <!--           同步發售</a><br> -->
+      <!--         <a href="#" class="news">3.上班族流向科技業 「工程師」急缺待補工作數年增25%</a><br> -->
+      <!--         <a href="#" class="news">4.科技業排薪 國立大學碩博>國立科大碩博>私立大學碩博</a><br> -->
+      <!--         <a href="#" class="news">5.永豐員工福利信託多元創新 獲《信託2.0計畫評鑑》肯定</a><br> -->
+      <!--         <a href="#" class="news">6.中華信評：台灣前50大企業應有能力應對營運風險</a> -->
+      <!--         <a href="#" class="news">7.上班族流向科技業 「工程師」急缺待補工作數年增25%</a><br> -->
+      <!--         <a href="#" class="news">8.科技業排薪 國立大學碩博>國立科大碩博>私立大學碩博</a><br> -->
+      <!--         <a href="#" class="news">9.永豐員工福利信託多元創新 獲《信託2.0計畫評鑑》肯定</a><br> -->
+      <!--         <a href="#" class="news">10.中華信評：台灣前50大企業應有能力應對營運風險</a> -->
+      <!--       </div> -->
+
+      <a href="http://localhost:8080/announcement/annoucementList.html"
+        class="btn-div col-md-9 ms-sm-auto col-lg-10 px-md-4" id="more" title="返回" style="color: black;">
+        more...
+      </a>
+
+    </div>
+  </div>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+
+  <script src="../js/dashboard.js"></script>
+  　
+  <!--  引用cookie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <script src="../js/navScript.js"></script>
+
+  <script>
+
+  console.log(localStorage.getItem("jwtToken"));	
+  
+  
+	//cookie
+  var id = $.cookie('session_id');
+  //console.log(id);
+	
+  $.ajax({
+  	url: `/profiles/select/${id}`,
+  	dataType: 'json',
+  	success: function (data) {
+  	console.log(data);
+  	var my_dept = data.dept.deptid;
+  	console.log(my_dept);
+  	$.cookie('session_dept', my_dept);
+
+  	var my_position = data.position.positionid;
+  	console.log(my_position);
+  	$.cookie('session_position', my_position);
+  	
+  	 $.ajax({
+           url: 'http://localhost:8080/api/login',
+           type:'post',
+           data: JSON.stringify({
+           	"empid": id,
+           	"deptid":my_dept,
+           	"positionid":my_position
+           }),
+           contentType: "application/json; charset=utf-8",
+           dataType: 'text',
+           success: function (data) { 
+               let jwtToken = data;
+               localStorage.setItem("jwtToken",jwtToken);
+           }
+       });	
+  	}
+  }); 
+  
+
+    //歡迎詞
+    $.ajax({
+      url: `/profiles/select/${id}`,
+      dataType: "JSON",
+      success: function (data) {
+        var nickname = (data.name).substr(-2, 2);
+        console.log(nickname);
+        $('#welcome').append(
+          '您好 '+nickname+"！" + '<br>' +
+          'Have a nice day!' + '<br>'
+        )
+        $('.circle').text(nickname);
+      }
+    });
+
+    //取得打卡狀態
+    $.ajax({
+      url: `/api/punchrecord/today/${id}`,
+      dataType: 'json',
+      success: function (data) {
+        console.log(data);
+
+        if (data.length == 0) {
+          document.getElementById("btn2").setAttribute("disabled", "");
+
+          //console.log(typeof(data));
+        } else if (data[0].punchtype == "上班") {
+
+          document.getElementById("btn1").setAttribute("disabled", "");
+        } else if (data[0].punchtype == "下班") {
+
+          document.getElementById("btn2").setAttribute("disabled", "");
+        }
+      },
+
+
+    })
+
+    var days = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    setInterval(function () {
+      var date = new Date();
+      var dateformat = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, 0)}-${date.getDate()} ${days[date.getDay()]} ${date.getHours().toString().padStart(2, 0)}:${date.getMinutes().toString().padStart(2, 0)}:${date.getSeconds().toString().padStart(2, 0)}`
+      document.getElementById("date").innerText = dateformat
+    }, 0, 1000);
+
+    $('document').ready(
+      function () {
+        $.ajax({
+          url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-1E624837-D206-4C75-B862-973BB0EE1686&format=JSON&locationName=%E8%87%BA%E4%B8%AD,%E5%8D%97%E5%B1%AF&elementName=TEMP,HUMD,Weather',
+          dataType: 'json',
+          success: function (data) {
+            $('#tempText').text(data.records.location[0].weatherElement[0].elementValue);
+            $('#humidText').text(Math.round(data.records.location[0].weatherElement[1].elementValue * 100) + "%");
+          }
+        })
+      }
+    )
+
+    $('document').ready(
+      function () {
+        $.ajax({
+          url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-1E624837-D206-4C75-B862-973BB0EE1686&format=JSON&locationName=%E8%87%BA%E4%B8%AD,%E5%8D%97%E5%B1%AF&elementName=TEMP,HUMD,Weather',
+          dataType: 'json',
+          success: function (data) {
+            var temp = data.records.location[0].weatherElement[0].elementValue;
+            var humid = data.records.location[0].weatherElement[1].elementValue;
+            var weather = data.records.location[0].weatherElement[2].elementValue;
+            $('#tempText').text(temp);
+            $('#humidText').text(Math.round(humid * 100) + "%");
+            if ((weather).indexOf("晴") != -1) {
+              $("#weather").prop("src", "../image/sun.png");
+            } else if ((weather).indexOf("雨") != -1) {
+              $("#weather").prop("src", "../image/rain.png");
+              $("#weather").css("width", "9rem");
+            } else if ((weather).indexOf("陰") != -1 || (weather).indexOf("多雲") != -1) {
+              $("#weather").prop("src", "../image/cloud.png");
+            }
+          }
+        })
+      }
+    )
+    var x = 1;
+    var y = 0.07;
+    setInterval(() => {
+      $("#weather-description").css("transform", `translateX(${x}px)`);
+      x += y;
+      if (x >= 4) {
+        y = y * (-1);
+      } else if (x <= (-10)) {
+        y = y * (-1);
+      }
+    }, 16);
+
+
+
+
+    // $(document).scroll(function () {
+    //         var y = $(this).scrollTop();
+    //         if (y >40) {
+    //           $('header').css("visibility","hidden");
+    //           $('.sidebar').css("padding-top","1rem")
+    //         }else {
+    //           $('header').css("visibility","visible");
+    //           $('.sidebar').css("padding-top","6rem")
+    //         }
+    //     });
+
+
+
+    //取得最新公告
+    $.ajax({
+      url: `/api/annoucement/title/`,
+      dataType: 'json',
+      success: function (data) {
+
+
+        for (var i = 0; i < 3; i++) {
+          $("#title").append(`<span class="cardDate">${data[i].announcementtime.substr(0, 10)}</span><h5 class="cardTitle"><a href="http://localhost:8080/announcement/annoucementPage${i}.html" style="color:black;">${data[i].announcementtitle}</a></h5><hr>`);
+        }
+
+
+
+      }
+
+    })
+
+
+    //data
+
+    var dataToServer1 = {
+
+    }
+
+    var dataToServer2 = {
+
+    }
+
+    //取得打卡狀態
+    // 	$.ajax({
+    //    	url: `/api/punchrecord/all`,
+    // 		dataType: 'json',
+    // 		success: function (data) {
+    // 		var type = data[0].punchtype;
+    // 		console.log(type);
+    // 	}
+    // })
+
+
+    //取得職員編號
+    var id = $.cookie('session_id');
+
+    //上班打卡按鈕-事件
+    $("#btn1").on("click", function () {
+
+      //辨別定位
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        var lngstr = lng.toString();
+        var latstr = lat.toString();
+
+
+
+        dataToServer1 = {
+          "punchid": 0,
+          "empid": Number(id),
+          "punchtime": new Date(),
+          "punchtype": "上班"
+        }
+
+
+        if (lat < 24.151286479938726 && lat > 24.150175341582163) {
+
+          if (lng > 120.65018845724198 && lng < 120.65182996902577) {
+            document.getElementById("frame").setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzqvHfkC6jhgHxCyotKWO4Nz5B9t_6jwA&q=" + latstr + ", " + lngstr);
+            infoModal.showModal();
+
+            closec.addEventListener("click", function () {
+              //console.log("上班:"+JSON.stringify(dataToServer1));
+
+              $.ajax({
+                type: "post",
+                url: `/api/punchrecord`,
+                data: JSON.stringify(dataToServer1),
+                contentType: "application/json",
+                success: function (data) {
+                  //console.log(data+" ok");
+                  // alert("打卡成功！");
+                  dataToServer1 = {};
+                  document.getElementById("btn1").setAttribute("disabled", "");
+                  document.getElementById("btn2").removeAttribute("disabled");
+                },
+                complete: function () {
+                  $('#punchalert').show();
+                }
+              });
+
+              infoModal.close();
+            })
+
+          } else {
+
+            document.getElementById("wframe").setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzqvHfkC6jhgHxCyotKWO4Nz5B9t_6jwA&q=" + latstr + ", " + lngstr);
+            wrongmodal.showModal();
+
+            closew.addEventListener("click", function () {
+              wrongmodal.close();
+            })
+
+          }
+
+        } else {
+
+          document.getElementById("wframe").setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzqvHfkC6jhgHxCyotKWO4Nz5B9t_6jwA&q=" + latstr + ", " + lngstr);
+          wrongmodal.showModal();
+
+          closew.addEventListener("click", function () {
+            wrongmodal.close();
+          })
+
+        }
+
+      })
+
+    });
+
+
+
+    //下班打卡按鈕-事件
+    $("#btn2").on("click", function () {
+
+      //辨別定位
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        var lngstr = lng.toString();
+        var latstr = lat.toString();
+
+
+        dataToServer2 = {
+          "punchid": 0,
+          "empid": Number(id),
+          "punchtime": new Date(),
+          "punchtype": "下班"
+        }
+
+        if (lat < 24.151286479938726 && lat > 24.150175341582163) {
+
+          if (lng > 120.65018845724198 && lng < 120.65182996902577) {
+            document.getElementById("frame2").setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzqvHfkC6jhgHxCyotKWO4Nz5B9t_6jwA&q=" + latstr + ", " + lngstr);
+            infoModal2.showModal();
+
+            closec2.addEventListener("click", function () {
+
+              //console.log("下班:"+JSON.stringify(dataToServer2));
+
+
+              $.ajax({
+                type: "post",
+                url: `/api/punchrecord`,
+                data: JSON.stringify(dataToServer2),
+                contentType: "application/json",
+                success: function (data) {
+                  //console.log(data+" ok");
+
+                  //alert("打卡成功！");
+                  dataToServer2 = {};
+                  document.getElementById("btn2").setAttribute("disabled", "");
+                  document.getElementById("btn1").removeAttribute("disabled");
+
+                  // alert("打卡成功！");
+                  dataToServer2 = {};
+
+
+                },
+
+                complete: function () {
+                  $('#punchalert').show();
+                }
+
+              });
+
+              infoModal2.close();
+            })
+
+          } else {
+
+            document.getElementById("wframe").setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzqvHfkC6jhgHxCyotKWO4Nz5B9t_6jwA&q=" + latstr + ", " + lngstr);
+            wrongmodal.showModal();
+
+            closew.addEventListener("click", function () {
+              wrongmodal.close();
+            })
+
+          }
+
+        } else {
+
+          document.getElementById("wframe").setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyCzqvHfkC6jhgHxCyotKWO4Nz5B9t_6jwA&q=" + latstr + ", " + lngstr);
+          wrongmodal.showModal();
+
+          closew.addEventListener("click", function () {
+            wrongmodal.close();
+          })
+
+        }
+
+      })
+
+    });
+
+
+
+
+  </script>
+</body>
+
+</html>

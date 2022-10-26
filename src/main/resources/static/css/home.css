@@ -1,0 +1,232 @@
+/*天氣div*/
+#weather-div {
+    position: relative;
+    margin-top: -13rem;
+    text-align: right;
+    vertical-align: middle;
+  
+  }
+  
+@media (max-width: 767.98px) {
+    .sidebar {
+      top: 2rem;
+    }
+  
+    .image-div {
+      margin-right: 4.7rem;
+    }
+    .notice{
+      margin-left: 10%;
+    }
+  
+  }
+  
+  @media (min-width: 994px) {
+    .image-div {
+      margin-right: 1rem;
+    }
+    .notice{
+      margin-left: 18.5%;
+    }
+  }
+  
+  @media (min-width: 750.67px) and (max-width: 994px) {
+  
+    .notice{
+      margin-left: 28%;
+    }
+  }
+  
+  /*天氣圖片大小*/
+  #weather {
+    width: 10rem;
+  }
+  
+  /*濕度圖片*/
+  #humid {
+    margin-top: 2rem;
+    margin-right: 2rem;
+  
+  }
+  /*天氣圖片div*/
+  #weather-description {
+    margin-top: -2rem;
+  }
+  
+  /*溫度圖片*/
+  #temp {
+    padding-top: 2rem;
+  
+  }
+  
+  /*濕度溫度敘述*/
+  #weatherText {
+    text-align: end;
+    margin-top: -5rem;
+    margin-right: 2rem;
+    font-size: 1.3rem;
+    z-index: 1;
+    padding-right: 2.7rem;
+  }
+  
+  /*溫度文字*/
+  #tempText {
+    padding-right: 0.5rem;
+  }
+  
+  .cls-1 {
+    fill: #efcc00;
+  }
+  
+  .cls-2 {
+    fill: none;
+    stroke: #efcc00;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
+  visibility:visible
+  }
+  
+  .notice {
+    position: relative;
+    height: 12rem;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    text-align:left;
+    width: 79%;
+  }
+  
+  .accordion-button{
+    font-size: 1.5rem;
+  }
+
+  /* 按鈕動畫 */
+.btn1 {
+    position: relative;
+    width: auto;
+    height: 10rem;
+    min-width: 49%;
+    text-align: center;
+    color: #fff;
+    background: #4CAF50;
+    cursor: pointer;
+    border: none;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: 0.2rem;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .btn1:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  .btn2 {
+    position: relative;
+    width: auto;
+    height: 10rem;
+    min-width: 49%;
+    text-align: center;
+    color: rgb(18, 13, 13);
+    background: rgb(243, 7, 7);
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    font-size: 2rem;
+    box-shadow: 0 9px #999;
+  }
+  
+  
+  .btn2:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  .btn1::after,
+  .btn1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #4CAF50;
+    z-index: -2;
+    border-radius: 15px;
+  }
+  
+  .btn2::after,
+  .btn2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: rgb(243, 7, 7);
+    z-index: -2;
+    border-radius: 15px;
+  }
+  
+  .btn1:hover,
+  .btn2:hover {
+    z-index: 1;
+    background: transparent;
+  }
+  
+  .btn1::before {
+    /* 動畫秒數 */
+    transition: .3s;
+    background: #3e8e41;
+    z-index: -1;
+  }
+  
+  .btn2::before {
+    /* 動畫秒數 */
+    transition: .3s;
+    background: rgb(224, 125, 125);
+    z-index: -1;
+  }
+  
+  .btn1:hover::after,
+  .btn1:hover::before,
+  .btn2:hover::after,
+  .btn2:hover::before {
+    width: 100%;
+  }
+  
+  /*disable button*/
+  
+	button:disabled,
+	button[disabled]{
+		 pointer-events: none;
+	  border: 1px solid #999999;
+	  background-color: #cccccc;
+	  color: #666666;
+	}
+  
+  /* welcome div */
+  .welcome-div {
+    background-image: url("../image/bg.png");
+    background-repeat: no-repeat;
+    height: 15rem;
+    margin-top: 1.3rem;
+    padding-left: 1rem;
+    font-size: 2rem;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+  
+  }
+  
+  /* date */
+  
+  #date {
+    font-size: 1.5rem;
+    margin-top: 4rem;
+    padding-left: 0.1rem;
+  }

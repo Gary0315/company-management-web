@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author"
+	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.98.0">
+<title>上傳餐廳</title>
+
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
+<script src="../jquery-3.6.0.js"></script>
+
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/navCss.css">
+<link rel="stylesheet" href="../css/restaurant.css">
+<style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.b-example-divider {
+	height: 3rem;
+	background-color: rgba(0, 0, 0, .1);
+	border: solid rgba(0, 0, 0, .15);
+	border-width: 1px 0;
+	box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em
+		rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+	flex-shrink: 0;
+	width: 1.5rem;
+	height: 100vh;
+}
+
+.bi {
+	vertical-align: -.125em;
+	fill: currentColor;
+}
+
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+.form_li_equipment {
+	list-style-type: none;
+	display: flex;
+	margin-left: calc(-.5 * var(- -bs-gutter-x));
+}
+
+.form_li_equipment>* {
+	flex-shrink: 0;
+	padding-left: calc(var(- -bs-gutter-x)* .5);
+	padding-right: calc(var(- -bs-gutter-x)* .5);
+	margin-top: var(- -bs-gutter-y);
+}
+
+.delDiv {
+	position: relative;
+}
+
+.delEquipment {
+	position: absolute;
+	bottom: 0px;
+}
+
+.form-control{
+	 border:1px solid black;
+}
+
+#equipment_list{
+  	font-size:1.5rem;
+}
+
+.btn{
+      font-size:1.2rem;
+    }
+    
+    input[type="number"], input[type="text"],input[type="date"],input[type="file"] {
+    	font-size:1.2rem;
+    }
+ 
+</style>
+
+
+
+</head>
+
+<body>
+
+	<header
+		class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-7"
+			href="../home/home.html"><img src="../image/iblogow.png"
+			width="100px" height="67px">iBoss</a>
+
+		<button class="navbar-toggler position-absolute d-md-none collapsed"
+			type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div id="user">
+      <a href="../profile/profile.html">
+        <span class="circle" style=" color: white;"></span>
+      </a>
+    </div>
+	</header>
+
+	<div class="container-fluid">
+		<div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">
+                <span data-feather="home" class="align-text-bottom"></span>
+                首頁
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/profile.html">
+                <span data-feather="user" class="align-text-bottom"></span>
+                個人資料
+              </a>
+            </li>
+            <div class="personnel">
+            <li class="nav-item">
+              <a class="nav-link" href="../profile/createProfile.html">
+                <span data-feather="user-plus" class="align-text-bottom iconPersonnel"></span>
+                新進員工建檔
+              </a>
+            </li>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../punchCard/punchRecord.html">
+                <span data-feather="clock" class="align-text-bottom"></span>
+                打卡紀錄
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../calendar/calendar.html">
+                <span data-feather="calendar" class="align-text-bottom"></span>
+                行事曆
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="annoucement" onclick="displayDiv('divAnnoucement')">
+                <span data-feather="edit" class="align-text-bottom"></span>
+                公告查詢
+              </button>
+            </li>
+            <div id="divAnnoucement">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link annoucements " href="../announcement/annoucementList.html">
+                    公告列表
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link annoucements" href="../announcement/announcementInsert.html">
+                      發布公告
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="leave" onclick="displayDiv('divLeave')">
+                <span data-feather="clipboard" class="align-text-bottom"></span>
+                請假
+              </button>
+            </li>
+            <div id="divLeave">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link leaves " href="../leave/leaveApply.html">
+                    填寫假單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link leaves" href="../leave/leaveRecord.html">
+                    假單查詢
+                  </a>
+                </li>
+                <div class="boss">
+                  <li class="nav-item">
+                    <a class="nav-link leaves" href="../leave/leaveCheck.html">
+                      假單審核
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../pay/pay.html">
+                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                薪資查詢
+              </a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="order" onclick="displayDiv('divOrder')">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                訂餐
+              </button>
+            </li>
+            <div id="divOrder">
+              <ul>
+              <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-choice.html">
+                      選擇餐廳
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant.html">
+                    點餐
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link orders" href="../restaurant/restaurant-record.html">
+                    訂餐查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-manager.html">
+                      上傳餐廳
+                    </a>
+                  </li>
+                </div>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link orders" href="../restaurant/restaurant-today.html">
+                      今日訂餐總表
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="" id="tool" onclick="displayDiv('divTool')">
+                <span data-feather="tool" class="align-text-bottom"></span>
+                器材
+              </button>
+            </li>
+
+            <div id="divTool">
+              <ul>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_new.html">
+                    租借申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment_fixnew.html">
+                    維修申請單
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tools" href="../equipment/equipment.html">
+                    紀錄查詢
+                  </a>
+                </li>
+                <div class="generalAffairs">
+                  <li class="nav-item">
+                    <a class="nav-link tools" href="../equipment/equipment_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <button class="nav-link" href="#" id="package" onclick="displayDiv('divPackage')">
+                <span data-feather="box" class="align-text-bottom"></span>
+                包裹收發
+              </button>
+            </li>
+            <div id="divPackage">
+              <ul>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_get.html">
+                      包裹登錄
+                    </a>
+                  </li>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive_push.html">
+                    寄件申請
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link packages" href="../receive/receive.html">
+                    包裹查詢
+                  </a>
+                </li>
+                <div class="receiveRoom">
+                  <li class="nav-item">
+                    <a class="nav-link packages" href="../receive/receive_check.html">
+                      進度追蹤
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="../webRTC/webrtc.html">
+                <span data-feather="video" class="align-text-bottom"></span>
+                視訊會議
+              </a>
+            </li>
+            <div class="boss">
+            <li class="nav-item">
+              <a class="nav-link" href="">
+              <span data-feather="camera" class="align-text-bottom iconBoss"></span>
+                即時影像
+              </a>
+            </li>
+            </div>
+            <li class="nav-item" id="logout">
+              <a class="nav-link" href="../index.html">
+                <span data-feather="log-out" class="align-text-bottom"></span>
+                登出
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+			<!-- 內容放置處 -->
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+			<div class="modal fade" id="confirmContext" data-bs-backdrop="static" tabindex="-1"
+	          aria-labelledby="exampleModalLabel" aria-hidden="true">
+	          <div class="modal-dialog modal-dialog-centered">
+	            <div class="modal-content">
+	              <div class="modal-body">
+	              <span></span>
+	              </div>
+	              <div class="modal-footer"> 
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+				<form class="row g-3 needs-validation"
+					style="padding-top: 50px; width: 50%;" action="" id="data"
+					enctype="multipart/form-data">
+					<h1>上傳餐廳</h1>
+					<hr>
+					<!-- 浮動版面 -->
+					<div class="col-md-4 position-relative" style="width:16rem;">
+						<label for="inputE4" class="form-label" style="font-size:1.5rem" >餐廳名稱</label> <input
+							type="text" class="form-control" id="" name="name" required>
+					</div>
+					<ul id="equipment_list">
+						<li class="form_li_equipment position-relative">
+							<div class="col-md-4 position-relative">
+								<label for="inputE4" class="form-label">餐點名稱</label> <input
+									type="text" class="form-control" name="meal0-name" required>
+							</div>
+							<div class="col-md-4 position-relative" style="margin-left:1rem;">
+								<label for="inputE5" class="form-label">價格</label> <input
+									type="number" class="form-control" name="meal0-price" min="0"
+									required>
+							</div>
+							<div class="col-md-4 position-relative" style="margin-left:1rem;">
+								<label for="inputE6" class="form-label">圖片</label> <input
+									type="file" class="form-control" name="meal0-img"
+									id="sortpicture0" style="width: 17rem">
+							</div>
+							<div class="col-3 position-relative delDiv">
+								<button type="button"
+									class="btn btn-outline-secondary delEquipment"
+									style="margin-left: 3.8rem">移除</button>
+							</div>
+
+						</li>
+
+					</ul>
+					<div class="col-md-3 position-relative" id="newE">
+						<button type="button" class="btn btn-outline-secondary"
+							onclick="newEquipment()">新增項目</button>
+					</div>
+
+					<hr>
+					<!-- 固定版面 -->
+					<div class="col-md-4 position-relative">
+						<label for="inputE4" class="form-label" style="font-size:1.5rem">申請人</label> <input
+							type="text" class="form-control" name="applicant" required>
+					</div>
+					<div class="col-md-4 position-relative">
+						<label for="inputCity" class="form-label" style="font-size:1.5rem" >申請時間</label> <input
+							type="date" class="form-control" name="applicationdate" required>
+					</div>
+					<div class="col-12" style="padding-top: 20px;" >
+						<button id="btnSubmit" type="button" class="btn btn-primary">送出申請</button>
+					</div>
+				</form>
+			</main>
+
+		</div>
+	</div>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script src="../js/dashboard.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<script src="../js/navScript.js"></script>
+	<script>
+	
+	//cookie
+	  var id = $.cookie('session_id');
+
+	  //右上角ICON姓名
+	  $.ajax({
+	    url: `/profiles/select/${id}`,
+	    dataType: "JSON",
+	    success: function (data) {
+	      var nickname = (data.name).substr(-2, 2);
+	      $('.circle').text(nickname);
+	    }
+	  });
+	
+  var a = 1;
+    function newEquipment() {
+    	var temp = 
+    	`<li  class="form_li_equipment position-relative">
+            <div class="col-md-4 position-relative" >
+                <label class="form-label">餐點名稱</label>
+                <input type="text" class="form-control"  name="meal${a}-name" required>
+            </div>
+            <div class="col-md-4 position-relative" style="margin-left:1rem;">
+                <label  class="form-label">價格</label>
+                <input type="number" class="form-control" name="meal${a}-price" min="0" required> 
+            </div>
+            <div class="col-md-4 position-relative" style="margin-left:1rem;">
+                <label  class="form-label">圖片</label>
+                <input type="file"  class="form-control"  name="meal${a}-img" id="sortpicture${a}" style="width:17rem">
+            </div>
+            <div class="col-3 position-relative delDiv">
+                <button type="button" class="btn btn-outline-secondary delEquipment"  style="margin-left: 3.8rem">移除</button>
+            </div>
+        </li>`;
+     //新增項目 最多五個
+      if(document.getElementById("equipment_list").getElementsByTagName("li").length<5){
+    	  $('#equipment_list').append(temp);
+    	  a++;
+      }
+
+    }
+    //移除項目
+   $(document).on("click", ".delEquipment", function () {
+	   $("li").last().remove();
+       a--;
+     })
+
+  
+    var restaurantid = 0;
+	var x =[];
+	// 複製照片至本地資料夾 並取得他的路徑 存入資料庫
+    function ajaxImg(){
+    	x=[];
+    	
+    	if( document.getElementById("equipment_list").getElementsByTagName("li").length>=1){
+    		if(document.getElementById("sortpicture0").files.length != 0 ){
+    			  
+        		var form_data = new FormData();   
+            	var file_data = $(`#sortpicture0`).prop('files')[0]; 
+                form_data.append('file', file_data);                     
+                $.ajax({
+        	    url: 'http://localhost:8080/api/files/upload/',
+        	    data: form_data,
+        	    cache: false,
+        	    contentType: false,
+        	    processData: false,
+        	    type: 'POST',
+                success: function (data) { 
+    					x[0]=data;
+                 }
+                });
+        	}else x[0]=null;
+        	
+    	}
+    	
+    	if( document.getElementById("equipment_list").getElementsByTagName("li").length>=2){
+    		if(document.getElementById("sortpicture1").files.length!= 0){
+        		
+                var form_data = new FormData();   
+            	var file_data = $(`#sortpicture1`).prop('files')[0]; 
+                form_data.append('file', file_data);                     
+                $.ajax({
+        	    url: 'http://localhost:8080/api/files/upload/',
+        	    data: form_data,
+        	    cache: false,
+        	    contentType: false,
+        	    processData: false,
+        	    type: 'POST',
+                success: function (data) { 
+    					x[1]=data;
+                 }
+                });
+        	}else x[1]=null;
+    	}
+    	
+    	if( document.getElementById("equipment_list").getElementsByTagName("li").length>=3){
+    		if(document.getElementById("sortpicture2").files.length!= 0){
+		 
+        var form_data = new FormData();   
+    	var file_data = $(`#sortpicture2`).prop('files')[0]; 
+        form_data.append('file', file_data);                     
+        $.ajax({
+	    url: 'http://localhost:8080/api/files/upload/',
+	    data: form_data,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    type: 'POST',
+        success: function (data) { 
+				x[2]=data;
+         }
+        });
+	}else x[2]=null;
+    	}
+    
+
+    
+    	if( document.getElementById("equipment_list").getElementsByTagName("li").length>=4){
+    		 if(document.getElementById("sortpicture3").files.length!= 0){
+		 
+        var form_data = new FormData();   
+    	var file_data = $(`#sortpicture3`).prop('files')[0]; 
+        form_data.append('file', file_data);                     
+        $.ajax({
+	    url: 'http://localhost:8080/api/files/upload/',
+	    data: form_data,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    type: 'POST',
+        success: function (data) { 
+				x[3]=data;
+         }
+        });
+	}else x[3]=null;
+    	}
+   
+
+    	if( document.getElementById("equipment_list").getElementsByTagName("li").length>=5){
+    		 if(document.getElementById("sortpicture4").files.length!= 0){
+		 
+        var form_data = new FormData();   
+    	var file_data = $(`#sortpicture4`).prop('files')[0]; 
+        form_data.append('file', file_data);                     
+        $.ajax({
+	    url: 'http://localhost:8080/api/files/upload/',
+	    data: form_data,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    type: 'POST',
+        success: function (data) { 
+				x[4]=data;
+         }
+        });
+	}else x[4]=null;
+
+    	}
+    
+   
+    }
+
+    
+    
+    //新增餐廳進資料庫
+function ajaxRestaurant(){
+	
+    	setTimeout(function(){
+    		 $.ajax({
+                 url: 'http://localhost:8080/api/restaurants/',
+                 type:'post',
+                 data: JSON.stringify({
+                 	"restaurantid":0,
+                     "restaurantname": $("input[name=name]").val(),
+                     "applicant": $("input[name=applicant]").val(),
+                     "applicationdate": $("input[name=applicationdate]").val(),
+                     "todayorder":0
+                 }),
+                 contentType: "application/json; charset=utf-8",
+                 dataType: 'json',
+                 success: function (data) { 
+                	 restaurantid = data.restaurantid;
+ 
+                 }
+             });
+    	},100)
+    }
+    
+    var dataToServer =[];
+    //新增餐點進資料庫
+    function ajaxDb(){
+    	dataToServer=[];
+    	setTimeout(function(){
+    		for(i=0;i<document.getElementById("equipment_list").getElementsByTagName("li").length;i++){
+	
+    			dataToServer.push({
+    				"restaurant":{
+    					"restaurantid":restaurantid
+    				},
+    	             	"orderitemid":0,
+    	                "orderitem": $(`input[name=meal${i}-name]`).val(),
+    	                "orderprice": $(`input[name=meal${i}-price]`).val(),
+    	                "image": `${(x[i]!=null)? "../upload/"+x[i]:null}`
+    	            });
+    		}
+          		
+    		 $.ajax({
+                 url: 'http://localhost:8080/api/orders/a',
+                 type:'post',
+                 data: JSON.stringify(dataToServer),
+                 contentType: "application/json; charset=utf-8",
+                 dataType: 'json',
+                 success: function (data) {
+                	 $(".modal-footer").empty();
+			    		$(".modal-footer")
+			    		.append('<button id="btnAlert" type="button" class="btn btn-primary" onclick="reloadPage();">確定</button>')	
+			           	var myModal = new bootstrap.Modal(document.getElementById('confirmContext'));
+			            $(".modal-body>span").text("新增成功");
+			            myModal.show();       	 
+                 }
+             });
+    	},800)
+    }
+    
+     btnSubmit.onclick=(function() { 
+    	 //confirm 視窗
+    	 if ($("form")[0].checkValidity()){
+    		 $(".modal-footer").empty();
+ 			$(".modal-footer")
+ 			.append('<button id="btnCheckYes" type="button" class="btn btn-primary" onclick="checkYES();">確定</button>')
+             .append('<button id="btnCheckNo" type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>');
+			$(".modal-body>span").text("確定新增此間餐廳?");    
+		    var myModal = new bootstrap.Modal(document.getElementById('confirmContext'));
+             myModal.show()
+    	 }
+         else{
+         	$("form")[0].reportValidity()
+         }
+	});
+     
+     function checkYES(){
+ 		ajaxImg();
+		ajaxRestaurant();
+		ajaxDb();  
+     }
+     //重新整理
+     function reloadPage(){
+		 location.reload();
+	 }
+
+  </script>
+
+</body>
+
+</html>

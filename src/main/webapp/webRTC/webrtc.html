@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="application/json; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webRTC</title>
+    <link
+      href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
+  </head>
+  <body>
+    <img src="video-chat.png" alt="" style="width: 130px; height:130px;
+    position: absolute; top: 10%; right: 47%;">
+    <div
+      class="btn-group "
+      style="position: absolute; top: 30%; right: 64%;
+      "
+    >
+      <!-- <button
+        type="button"
+        class="btn btn-secondary dropdown-toggle"
+        data-toggle="dropdown"
+      >
+        即時會議
+      </button> -->
+      
+
+      <div
+        class="dropdown-menu"
+        id="chat_socketCon"
+        role="menu"
+        id="chat_users"
+        style="text-align: center;display: inline-block;
+        font-size: 28px;width: 400px; height: 200px;
+        "
+      >
+      
+        <li id="rct_con">
+          <a href="javascript:void(0)">尚未登入會議</a>
+        </li>
+  
+        <li class="divider"></li>
+      </div>
+    </div>
+   
+    <!-- 簡易視訊會議 -->
+    <script>
+      //http協議==> ws,  https協議==> wss
+      var websocketPath = "ws://127.0.0.1:8080/webrtc";
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script type="text/javascript" src="js/util.js" charset="utf-8"></script>
+    <script charset="utf-8" src="js/websocket.js"></script>
+    <script charset="utf-8" src="js/webrtc.js"></script>
+    <script charset="utf-8" src="js/chat.js"></script>
+    <link href="css/chat.css" rel="stylesheet" />
+  </body>
+</html>

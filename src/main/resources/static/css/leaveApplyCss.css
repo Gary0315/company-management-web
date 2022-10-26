@@ -1,0 +1,34 @@
+/* 設定文字置中 */
+main{
+    text-align: center;
+    padding-top:35px;
+    font-size: 1.5rem;
+}
+
+/* input鎖定 顏色 */
+input[type=text]:disabled {
+  background: #C0C0C0;
+  border-radius: 3px;
+}
+
+/* 表單內容間距 */ 
+.row{
+    margin: 1rem;
+}
+
+/* 按鈕字體大小 */ 
+#btnApply,#btnCheckYes,#btnCheckNo{
+	font-size: 1.5rem;
+}
+
+/* confirm內容 */ 
+.modal-body{
+	margin:1rem;
+	font-size: 1.5rem;
+}
+
+/* confirm按鈕 置中 */ 
+.modal-footer{
+	justify-content: center;
+}
+
